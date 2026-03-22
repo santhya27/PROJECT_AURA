@@ -63,7 +63,7 @@ useEffect(() => {
                        applianceYears.includes('2010-2019') ? 2015 : 2024;
 
     // 3. The API Call - Check these keys!
-    const response = await axios.post('http://127.0.0.1:8000/analyze', {
+    const response = await axios.post('https://aura-xlc8.onrender.com/analyze', {
       user_id: "2c1f2d20-dc85-41ba-9c95-b43fc694be59", 
       elec_units: parseFloat(elecData.evCharging || 0), // Removed the +400 for accuracy
       water_liters: parseFloat(waterData.waterLiters || 0),
@@ -303,7 +303,7 @@ const Step4Dashboard = ({ backendData, userData, prevStep, nextStep }) => {
   const playAudio = () => {
     if (backendData?.voice_url) {
       // Combines your Python address with the path returned by the API
-      const audioUrl = `http://127.0.0.1:8000${backendData.voice_url}`;
+     const audioUrl = `https://aura-xlc8.onrender.com${backendData.voice_url}`;
       console.log("Playing audio from:", audioUrl);
       const audio = new Audio(audioUrl);
       audio.play().catch(e => {
