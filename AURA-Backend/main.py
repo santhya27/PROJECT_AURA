@@ -6,6 +6,7 @@ import os
 import time
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
 app = FastAPI()
 
@@ -24,6 +25,7 @@ app.add_middleware(
 )
 
 # 3. Supabase Config (Check your Key - it looks like a public key)
+load_dotenv()
 URL = os.getenv("SUPABASE_URL")
 KEY = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(URL, KEY)
